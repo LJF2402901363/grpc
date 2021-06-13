@@ -1,0 +1,5 @@
+server:
+  port: 8090
+autochat:
+  host: 121.4.41.89
+  port: 50052

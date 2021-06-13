@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+//option java_package = "com.grpc";
+//option java_outer_classname = "AutoChat";
+//option objc_class_prefix = "HLW";
+
+package server;
+
+// The greeting service definition.
+service AutoChat {
+  // Sends a greeting
+  rpc autoChat (AutoChatRequest) returns (AutoChatReply) {}
+}
+
+// The request message containing the user's name.
+message AutoChatRequest {
+  string question = 1;
+}
+
+// The response message containing the greetings
+message AutoChatReply {
+  string response = 1;
+}
