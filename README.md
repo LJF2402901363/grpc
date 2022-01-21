@@ -80,7 +80,7 @@
                     <pluginArtifact>io.grpc:protoc-gen-grpc-java:1.26.0:exe:${os.detected.classifier}</pluginArtifact>
                     <!--默认值-->
                     <protoSourceRoot>${project.basedir}/src/main/resources/proto</protoSourceRoot>
-                    <outputDirectory>${project.basedir}/src/main/java/com/grpc/shiyun</outputDirectory>
+                    <outputDirectory>${project.basedir}/src/main/java/</outputDirectory>
                     <!--设置是否在生成java文件之前清空outputDirectory的文件，默认值为true，设置为false时也会覆盖同名文件-->
                     <clearOutputDirectory>true</clearOutputDirectory>
                 </configuration>
@@ -161,10 +161,13 @@ pip install grpcio-tools
 syntax = "proto3";
 #在Python时候不需要这个选项
 #option java_multiple_files = true;
+option java_package = "com.grpc.shiyun";
+// java_outer_classname 不能和 service name相同
+option java_outer_classname = "AutoChat";
 package shiyun;
 
 // The greeting service definition.
-service AutoChat {
+service autochat {
   // Sends a greeting
   rpc autoChat (AutoChatRequest) returns (AutoChatReply) {}
 }
